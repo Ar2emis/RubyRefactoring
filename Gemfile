@@ -10,6 +10,7 @@ group :development do
   gem 'pry'
   gem 'rubocop'
   gem 'rubocop-rspec'
+  gem 'solargraph'
 end
 
 group :test do
