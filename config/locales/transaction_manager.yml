@@ -1,0 +1,15 @@
+en:
+  no_active_cards_message: "There is no active cards!\n"
+  withdraw_money_message: 'Choose the card for withdrawing:'
+  put_money_message: 'Choose the card for putting:'
+  put_amount_message: 'Input the amount of money you want to put on your card'
+  puted_money_message: "Money %{amount} was put on %{number}. Balance: %{balance}. Tax: %{tax}"
+  withdraw_amount_message: 'Input the amount of money you want to withdraw'
+  withdrawed_money_message: "Money %{amount} withdrawed from %{number}$. Money left: %{balance}$. Tax: %{tax}$"
+  send_money_message: 'Choose the card for sending:'
+  sended_money_message: 'Choose correct card'
+  wrong_number_message: "You entered wrong number!\n"
+  invalid_amount_message: 'You must input correct amount of money'
+  invalid_card_number_message: 'Please, input correct number of card'
+  no_card_with_number_message: "There is no card with number %{number}\n"
+  card_number_message: 'Enter the recipient card:'

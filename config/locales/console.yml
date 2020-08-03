@@ -1,0 +1,31 @@
+en:
+  main_menu_message: |+
+    
+    Welcome, %{name}
+    If you want to:
+    - show all cards - press SC
+    - create card - press CC
+    - destroy card - press DC
+    - put money on card - press PM
+    - withdraw money on card - press WM
+    - send money to another card  - press SM
+    - destroy account - press `DA`
+    - exit from account - press `exit`
+  create_command: 'create'
+  load_command: 'load'
+  show_cards_command: 'SC'
+  create_card_command: 'CC'
+  destroy_card_command: 'DC'
+  put_money_command: 'PM'
+  withdraw_money_command: 'WM'
+  send_money_command: 'SM'
+  destroy_account_command: 'DA'
+  authorization_message: |
+    Hello, we are RubyG bank!
+    - If you want to create account - press `create`
+    - If you want to load account - press `load`
+    - If you want to exit - press `exit`
+  first_account_message: 'There is no active accounts, do you want to be the first?[y/n]'
+  invalid_command_message: "Wrong command. Try again!\n"
+  no_active_cards_message: "There is no active cards!\n"
+  card: "- %{number}, %{type}"

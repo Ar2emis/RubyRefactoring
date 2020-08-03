@@ -1,0 +1,3 @@
+en:
+  not_enough_money_error: 'Not enough money for such operation'
+  too_small_amount_error: 'Your tax is higher than input amount'

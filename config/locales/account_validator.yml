@@ -1,0 +1,10 @@
+en:
+  invalid_name_message: 'Your name must not be empty and starts with first upcase letter'
+  invalid_age_message: 'Your Age must be greeter then 23 and lower then 90'
+  empty_login_message: 'Login must present'
+  short_login_message: 'Login must be longer then 4 symbols'
+  long_login_message: 'Login must be shorter then 20 symbols'
+  account_alredy_exist_message: 'Such account is already exists'
+  empty_password_message: 'Password must present'
+  short_password_message: 'Password must be longer then 6 symbols'
+  long_password_message: 'Password must be shorter then 30 symbols'

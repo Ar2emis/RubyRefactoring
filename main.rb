@@ -1,3 +1,3 @@
-require_relative 'account'
+require_relative 'lib/rubyg_bank'
 
-Account.new.console
+Console.new.console
