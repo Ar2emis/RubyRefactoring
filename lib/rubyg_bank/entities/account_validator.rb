@@ -28,7 +28,7 @@ class AccountValidator
     @errors << :empty_login_message if @account.login.empty?
     @errors << :short_login_message if @account.login.length < 4
     @errors << :long_login_message if @account.login.length > 20
-    @errors << :account_alredy_exist_message if account_exist?(@account.login)
+    @errors << :account_already_exist_message if account_exist?(@account.login)
   end
 
   def validate_password

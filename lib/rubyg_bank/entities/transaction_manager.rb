@@ -88,7 +88,7 @@ class TransactionManager
     card_number = card_number_input
     return put_message(:invalid_card_number_message) unless card_number.length == BaseCard::NUMBER_LENGTH
 
-    recepient_card = Account.accounts.map(&:cards).flatten.select { |card| card.number == card_number }.first
+    recepient_card = Account.accounts.map(&:cards).flatten.detect { |card| card.number == card_number }
     receipent_card.nil? ? put_message(:no_card_with_number_message, number: recepient_card_number) : recepient_card
   end
 

@@ -15,7 +15,7 @@ class AccountManager
     (1..nil).each do
       login = login_input
       password = password_input
-      account = Account.accounts.select { |acc| acc.login == login && acc.password == password }.first
+      account = Account.accounts.detect { |acc| acc.login == login && acc.password == password }
       return account unless account.nil?
 
       put_errors(:invalid_credentials_message)

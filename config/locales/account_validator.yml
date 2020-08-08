@@ -4,7 +4,7 @@ en:
   empty_login_message: 'Login must present'
   short_login_message: 'Login must be longer then 4 symbols'
   long_login_message: 'Login must be shorter then 20 symbols'
-  account_alredy_exist_message: 'Such account is already exists'
+  account_already_exist_message: 'Such account is already exists'
   empty_password_message: 'Password must present'
   short_password_message: 'Password must be longer then 6 symbols'
   long_password_message: 'Password must be shorter then 30 symbols'

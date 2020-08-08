@@ -25,7 +25,7 @@ en:
     - If you want to create account - press `create`
     - If you want to load account - press `load`
     - If you want to exit - press `exit`
-  first_account_message: 'There is no active accounts, do you want to be the first?[y/n]'
+  first_account_message: "There is no active accounts, do you want to be the first?[y/n]\n"
   invalid_command_message: "Wrong command. Try again!\n"
   no_active_cards_message: "There is no active cards!\n"
   card: "- %{number}, %{type}"

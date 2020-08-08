@@ -4,4 +4,4 @@ en:
   login_message: 'Enter your login'
   password_message: 'Enter your password'
   invalid_credentials_message: 'There is no account with given credentials'
-  destroy_account_message: 'Are you sure you want to destroy account?[y/n]'
+  destroy_account_message: "Are you sure you want to destroy account?[y/n]\n"
