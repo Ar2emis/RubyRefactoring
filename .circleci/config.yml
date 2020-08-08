@@ -14,7 +14,7 @@ caches:
 commands:
   defaults:
     steps:
-      - run: apt-get install cmake
+      - run: sudo apt-get install cmake
       - checkout
       - restore_cache:
           keys:
