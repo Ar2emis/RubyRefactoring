@@ -12,7 +12,7 @@ class AccountManager
   end
 
   def load_account
-    (1..nil).each do
+    loop do
       login = login_input
       password = password_input
       account = Account.accounts.detect { |acc| acc.login == login && acc.password == password }
