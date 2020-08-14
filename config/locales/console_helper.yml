@@ -1,5 +1,0 @@
-en:
-  yes_command: 'y'
-  exit_command: 'exit'
-  exit_message: "press `exit` to exit\n"
-  indexed_card: "- %{number}, %{type}, press %{index}"

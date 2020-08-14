@@ -38,6 +38,6 @@ class CardManager
 
   def confirm_card_destroying(card)
     put_message(:destroy_card_confirmation_message, card_number: card.number)
-    @account.destroy_card(card) if input == YES
+    @account.destroy_card(card) if input == YES_COMMAND
   end
 end

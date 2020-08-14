@@ -41,7 +41,7 @@ class Console
 
   def create_the_first_account
     put_message(:first_account_message)
-    input == YES ? create : console
+    input == YES_COMMAND ? create : console
   end
 
   def main_menu

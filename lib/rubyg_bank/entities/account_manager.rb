@@ -24,7 +24,7 @@ class AccountManager
 
   def destroy_account(account)
     put_message(:destroy_account_message)
-    return unless input == YES
+    return unless input == YES_COMMAND
 
     account.destroy
   end
