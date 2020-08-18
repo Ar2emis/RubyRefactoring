@@ -13,14 +13,14 @@ RSpec.describe UsualCard do
     it 'returns instance with default balance' do
       new_card = described_class.create
       expect(new_card).to be_a(described_class)
-      expect(new_card.balance).to eq described_class.start_balance
+      expect(new_card.balance).to eq described_class::START_BALANCE
     end
   end
 
   describe '#withdraw' do
     it 'withdraws money from card with tax' do
       card.withdraw(amount)
-      expect(card.balance).to eq described_class.start_balance - amount - card.withdraw_tax(amount)
+      expect(card.balance).to eq described_class::START_BALANCE - amount - card.withdraw_tax(amount)
     end
   end
 
@@ -29,8 +29,8 @@ RSpec.describe UsualCard do
 
     it 'sends money from one card to another with tax' do
       card.send(card_to, amount)
-      expect(card.balance).to eq described_class.start_balance - amount - card.sender_tax(amount)
-      expect(card_to.balance).to eq described_class.start_balance + amount - card_to.put_tax(amount)
+      expect(card.balance).to eq described_class::START_BALANCE - amount - card.sender_tax(amount)
+      expect(card_to.balance).to eq described_class::START_BALANCE + amount - card_to.put_tax(amount)
     end
   end
 end

@@ -1,4 +1,9 @@
 class VirtualCard < BaseCard
+  WITHDRAW_PERCENT = 88
+  PUT_FIXED = 1
+  SENDER_FIXED = 1
+  START_BALANCE = 150
+
   def initialize(balance)
     super(balance)
   end
@@ -8,24 +13,20 @@ class VirtualCard < BaseCard
   end
 
   def self.create
-    VirtualCard.new(start_balance)
-  end
-
-  def self.start_balance
-    150
+    VirtualCard.new(START_BALANCE)
   end
 
   private
 
   def withdraw_percent
-    88
+    WITHDRAW_PERCENT
   end
 
   def put_fixed
-    1
+    PUT_FIXED
   end
 
   def sender_fixed
-    1
+    SENDER_FIXED
   end
 end

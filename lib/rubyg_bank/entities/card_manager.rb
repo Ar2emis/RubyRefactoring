@@ -6,7 +6,7 @@ class CardManager
   end
 
   def create_card
-    (1..nil).each do
+    loop do
       put_message(:create_card_message)
       card_type = card_types[input]
       return @account.add_card(card_type.create) unless card_type.nil?
@@ -18,11 +18,11 @@ class CardManager
   def destroy_card
     return put_message(:no_active_cards_message) if @account.cards.empty?
 
-    (1..nil).each do
+    loop do
       index = choose_card(:destroy_card_message, @account.cards)
       index == EXIT_COMMAND ? break : index = parse_index(index)
 
-      return confirm_card_destroying(@account.cards[index]) if index >= 0 && index < @account.cards.length
+      return confirm_card_destroying(@account.cards[index]) if card_index_valid?(index, @account)
 
       put_message(:wrong_number_message)
     end

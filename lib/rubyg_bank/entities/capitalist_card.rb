@@ -1,4 +1,9 @@
 class CapitalistCard < BaseCard
+  WITHDRAW_PERCENT = 4
+  PUT_FIXED = 10
+  SENDER_PERCENT = 10
+  START_BALANCE = 100
+
   def initialize(balance)
     super(balance)
   end
@@ -8,7 +13,7 @@ class CapitalistCard < BaseCard
   end
 
   def self.create
-    CapitalistCard.new(start_balance)
+    CapitalistCard.new(START_BALANCE)
   end
 
   def self.start_balance
@@ -18,14 +23,14 @@ class CapitalistCard < BaseCard
   private
 
   def withdraw_percent
-    4
+    WITHDRAW_PERCENT
   end
 
   def put_fixed
-    10
+    PUT_FIXED
   end
 
   def sender_percent
-    10
+    SENDER_PERCENT
   end
 end

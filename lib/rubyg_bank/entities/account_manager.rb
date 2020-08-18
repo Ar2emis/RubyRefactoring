@@ -2,7 +2,7 @@ class AccountManager
   include ConsoleHelper
 
   def create_account
-    (1..nil).each do
+    loop do
       account = Account.new(name: name_input, age: age_input, login: login_input, password: password_input)
       validator = AccountValidator.new(account)
       return account.save if validator.valid?

@@ -25,6 +25,10 @@ module ConsoleHelper
     card_index.to_i - 1
   end
 
+  def card_index_valid?(card_index, account)
+    card_index >= 0 && card_index < account.cards.length
+  end
+
   def show_indexed_cards(cards)
     cards.each_with_index do |card, index|
       put_message(:indexed_card, number: card.number, type: card.type, index: index + 1)

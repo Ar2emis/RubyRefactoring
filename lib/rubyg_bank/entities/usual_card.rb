@@ -1,4 +1,9 @@
 class UsualCard < BaseCard
+  WITHDRAW_PERCENT = 5
+  PUT_PERCENT = 2
+  SENDER_FIXED = 20
+  START_BALANCE = 50
+
   def initialize(balance)
     super(balance)
   end
@@ -8,24 +13,20 @@ class UsualCard < BaseCard
   end
 
   def self.create
-    UsualCard.new(start_balance)
-  end
-
-  def self.start_balance
-    50
+    UsualCard.new(START_BALANCE)
   end
 
   private
 
   def withdraw_percent
-    5
+    WITHDRAW_PERCENT
   end
 
   def put_percent
-    2
+    PUT_PERCENT
   end
 
   def sender_fixed
-    20
+    SENDER_FIXED
   end
 end

@@ -6,66 +6,55 @@ class TransactionManager
   end
 
   def withdraw_money
-    return put_message(:no_active_cards_message) if @account.cards.empty?
-
-    index = choose_card(:withdraw_money_message, @account.cards)
-    return if index == EXIT_COMMAND
-
-    index = parse_index(index)
-    card_index_valid?(index) ? withdraw_from_card(@account.cards[index]) : put_message(:wrong_number_message)
-  rescue NotEnoughMoneyError => e
-    put_errors(e)
+    do_transaction_with_money(:withdraw_money_message) do |card|
+      do_operation_with_card(:withdraw_amount_message, :withdrawed_money_message, card, :withdraw)
+    end
   end
 
   def put_money
-    return put_message(:no_active_cards_message) if @account.cards.empty?
-
-    index = choose_card(:put_money_message, @account.cards)
-    return if index == EXIT_COMMAND
-
-    index = parse_index(index)
-    card_index_valid?(index) ? put_money_to_card(@account.cards[index]) : put_message(:wrong_number_message)
-  rescue TooSmallAmountError => e
-    put_errors(e)
+    do_transaction_with_money(:put_money_message) do |card|
+      do_operation_with_card(:put_amount_message, :puted_money_message, card, :put)
+    end
   end
 
   def send_money
-    return put_message(:no_active_cards_message) if @account.cards.empty?
-
-    index = choose_card(:send_money_message, @account.cards)
-    exit if index == EXIT_COMMAND
-    index = parse_index(index)
-
-    return put_message(:wrong_number_message) unless card_index_valid?(index)
-
-    send_money_from_card(@account.cards[index])
+    do_transaction_with_money(:send_money_message) { |card| send_money_from_card(card) }
   end
 
   private
+
+  def do_transaction_with_money(card_message)
+    return put_message(:no_active_cards_message) if @account.cards.empty?
+
+    index = choose_card(card_message, @account.cards)
+    return if index == EXIT_COMMAND
+
+    index = parse_index(index)
+    card_index_valid?(index, @account) ? yield(@account.cards[index]) : put_message(:wrong_number_message)
+  rescue NotEnoughMoneyError, TooSmallAmountError => e
+    put_errors(e)
+  end
+
+  def do_operation_with_card(operation_message, done_message, card, operation)
+    amount = amount_input(operation_message)
+    return put_message(:invalid_amount_message) unless amount.positive?
+
+    tax = case operation
+          when :withdraw
+            @account.withdraw(card, amount) && card.withdraw_tax(amount)
+          when :put
+            @account.put(card, amount) && card.put_tax(amount)
+          end
+
+    put_message(done_message, amount: amount, number: card.number,
+                              balance: card.balance, tax: tax)
+  end
 
   def send_money_from_card(card)
     card_send_to = recepient_card
     return if card_send_to.nil?
 
     loop { break if money_sended?(card, card_send_to) }
-  end
-
-  def withdraw_from_card(card)
-    amount = amount_input(:withdraw_amount_message)
-    return put_message(:invalid_amount_message) unless amount.positive?
-
-    @account.withdraw(card, amount)
-    put_message(:withdrawed_money_message, amount: amount, number: card.number,
-                                           balance: card.balance, tax: card.withdraw_tax(amount))
-  end
-
-  def put_money_to_card(card)
-    amount = amount_input(:put_amount_message)
-    return put_message(:invalid_amount_message) unless amount.positive?
-
-    @account.put(card, amount)
-    put_message(:puted_money_message, amount: amount, number: card.number,
-                                      balance: card.balance, tax: card.put_tax(amount))
   end
 
   def money_sended?(card_from, card_to)
@@ -78,10 +67,6 @@ class TransactionManager
     true
   rescue NotEnoughMoneyError, TooSmallAmountError => e
     put_errors(e)
-  end
-
-  def card_index_valid?(card_index)
-    card_index >= 0 && card_index < @account.cards.length
   end
 
   def recepient_card
