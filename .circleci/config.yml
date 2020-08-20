@@ -15,6 +15,7 @@ commands:
   defaults:
     steps:
       - checkout
+      - run: sudo apt-get install cmake
       - restore_cache:
           keys:
             - *bundle_cache_full

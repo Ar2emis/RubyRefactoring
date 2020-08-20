@@ -1,0 +1,87 @@
+en:
+  name_message: 'Enter your name'
+  age_message: 'Enter your age'
+  login_message: 'Enter your login'
+  password_message: 'Enter your password'
+  invalid_credentials_message: 'There is no account with given credentials'
+  destroy_account_message: "Are you sure you want to destroy account?[y/n]\n"
+
+  invalid_name_message: 'Your name must not be empty and starts with first upcase letter'
+  invalid_age_message: 'Your Age must be greeter then 23 and lower then 90'
+  empty_login_message: 'Login must present'
+  short_login_message: 'Login must be longer then 4 symbols'
+  long_login_message: 'Login must be shorter then 20 symbols'
+  account_already_exist_message: 'Such account is already exists'
+  empty_password_message: 'Password must present'
+  short_password_message: 'Password must be longer then 6 symbols'
+  long_password_message: 'Password must be shorter then 30 symbols'
+
+  create_card_message: |
+    You could create one of 3 card types
+    - Usual card. 2% tax on card INCOME. 20$ tax on SENDING money from this card. 5% tax on WITHDRAWING money. For creation this card - press `usual`
+    - Capitalist card. 10$ tax on card INCOME. 10% tax on SENDING money from this card. 4$ tax on WITHDRAWING money. For creation this card - press `capitalist`
+    - Virtual card. 1$ tax on card INCOME. 1$ tax on SENDING money from this card. 12% tax on WITHDRAWING money. For creation this card - press `virtual`
+    - For exit - press `exit`
+  destroy_card_message: 'If you want to delete:'
+  destroy_card_confirmation_message: "Are you sure you want to delete %{card_number}?[y/n]"
+  wrong_card_type_message: "Wrong card type. Try again!\n"
+  no_active_cards_message: "There is no active cards!\n"
+  wrong_number_message: "You entered wrong number!\n"
+
+  usual: 'usual'
+  capitalist: 'capitalist'
+  virtual: 'virtual'
+
+  main_menu_message: |+
+    
+    Welcome, %{name}
+    If you want to:
+    - show all cards - press SC
+    - create card - press CC
+    - destroy card - press DC
+    - put money on card - press PM
+    - withdraw money on card - press WM
+    - send money to another card  - press SM
+    - destroy account - press `DA`
+    - exit from account - press `exit`
+  create_command: 'create'
+  load_command: 'load'
+  show_cards_command: 'SC'
+  create_card_command: 'CC'
+  destroy_card_command: 'DC'
+  put_money_command: 'PM'
+  withdraw_money_command: 'WM'
+  send_money_command: 'SM'
+  destroy_account_command: 'DA'
+  authorization_message: |
+    Hello, we are RubyG bank!
+    - If you want to create account - press `create`
+    - If you want to load account - press `load`
+    - If you want to exit - press `exit`
+  first_account_message: "There is no active accounts, do you want to be the first?[y/n]\n"
+  invalid_command_message: "Wrong command. Try again!\n"
+  no_active_cards_message: "There is no active cards!\n"
+  card: "- %{number}, %{type}"
+
+  yes_command: 'y'
+  exit_command: 'exit'
+  exit_message: "press `exit` to exit\n"
+  indexed_card: "- %{number}, %{type}, press %{index}"
+
+  not_enough_money_error: 'Not enough money for such operation'
+  too_small_amount_error: 'Your tax is higher than input amount'
+
+  no_active_cards_message: "There is no active cards!\n"
+  withdraw_money_message: 'Choose the card for withdrawing:'
+  put_money_message: 'Choose the card for putting:'
+  put_amount_message: 'Input the amount of money you want to put on your card'
+  puted_money_message: "Money %{amount} was put on %{number}. Balance: %{balance}. Tax: %{tax}"
+  withdraw_amount_message: 'Input the amount of money you want to withdraw'
+  withdrawed_money_message: "Money %{amount} withdrawed from %{number}$. Money left: %{balance}$. Tax: %{tax}$"
+  send_money_message: 'Choose the card for sending:'
+  sended_money_message: 'Choose correct card'
+  wrong_number_message: "You entered wrong number!\n"
+  invalid_amount_message: 'You must input correct amount of money'
+  invalid_card_number_message: 'Please, input correct number of card'
+  no_card_with_number_message: "There is no card with number %{number}\n"
+  card_number_message: 'Enter the recipient card:'
